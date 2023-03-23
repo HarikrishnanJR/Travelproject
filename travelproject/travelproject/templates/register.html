@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+	<style>
+		body {
+			background-color: red;
+			font-family: Arial, sans-serif;
+		}
+		form {
+			border: 2px solid #333;
+			padding: 20px;
+			background-color: #FFF;
+			margin: 20px auto;
+			max-width: 500px;
+		}
+		input[type=text], input[type=password] {
+			padding: 10px;
+			margin: 10px 0;
+			border: none;
+			border-radius: 5px;
+			background-color: #F9F9F9;
+			width: 100%;
+			box-sizing: border-box;
+			font-size: 16px;
+			color: #333;
+			font-weight: 600;
+			letter-spacing: 1px;
+		}
+		input[type=submit] {
+			background-color: #4285F4;
+			color: #FFF;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			width: 100%;
+			font-size: 16px;
+			font-weight: 600;
+			letter-spacing: 1px;
+			transition: background-color 0.3s ease-in-out;
+		}
+		input[type=submit]:hover {
+			background-color: #3367D6;
+		}
+		h1, h2 {
+			text-align: center;
+			margin-top: 50px;
+			color: #333;
+			font-weight: 600;
+			letter-spacing: 2px;
+		}
+		h2 {
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+<h1>DOORS CAN BE OPENED</h1>
+<h2>Registration</h2>
+<form action="register" method="post">
+    {% csrf_token %}
+    <input type = "text" name = "username" placeholder="Enter your username"><br>
+    <input type = "text" name = "first_name" placeholder="Enter your first_name"><br>
+    <input type = "text" name = "last_name" placeholder="Enter your last_name"><br>
+    <input type = "text" name = "email" placeholder="Enter your email"><br>
+    <input type = "text" name = "password" placeholder="Enter your password"><br>
+    <input type = "text" name = "password1" placeholder="Confirm your password"><br>
+    <input type="submit">
+</form>
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+
+</body>
+</html>
